@@ -23,24 +23,24 @@ import org.hibernate.annotations.ForeignKey;
  */
 @Entity
 @Table (name = "tipoLargadouro")
-public class TipoLargadouro implements Serializable{
+public class TipoLogradouro implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue
-    @Column(name = "idLargadouro", nullable = false)
-    private Integer idLargadouro;
+    @Column(name = "idLogradouro", nullable = false)
+    private Integer idLogradouro;
     
     @Column(name = "descricaoLargadouro", nullable = false, length = 35)
-    private String descricaoLargadouro;
+    private String descricaoLogradouro;
     
     
-    @OneToMany (mappedBy = "tipoLargadouro",fetch = FetchType.LAZY)
-    @ForeignKey(name = "Endereco_tipoLargadouro")
+    @OneToMany (mappedBy = "tipoLogradouro",fetch = FetchType.LAZY)
+    @ForeignKey(name = "Endereco_tipoLogradouro")
     private List<Endereco> endereco;
 
-    public TipoLargadouro() {
+    public TipoLogradouro() {
     }
 
     public List<Endereco> getEndereco() {
@@ -50,32 +50,28 @@ public class TipoLargadouro implements Serializable{
     public void setEndereco(List<Endereco> endereco) {
         this.endereco = endereco;
     }
-    
-    
 
-    public Integer getIdLargadouro() {
-        return idLargadouro;
+    public Integer getIdLogradouro() {
+        return idLogradouro;
     }
 
-    public void setIdLargadouro(Integer idLargadouro) {
-        this.idLargadouro = idLargadouro;
+    public void setIdLogradouro(Integer idLogradouro) {
+        this.idLogradouro = idLogradouro;
     }
 
-    public String getDescricaoLargadouro() {
-        return descricaoLargadouro;
+    public String getDescricaoLogradouro() {
+        return descricaoLogradouro;
     }
 
-    public void setDescricaoLargadouro(String descricaoLargadouro) {
-        this.descricaoLargadouro = descricaoLargadouro;
+    public void setDescricaoLogradouro(String descricaoLogradouro) {
+        this.descricaoLogradouro = descricaoLogradouro;
     }
-
- 
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + (this.idLargadouro != null ? this.idLargadouro.hashCode() : 0);
-        hash = 23 * hash + (this.descricaoLargadouro != null ? this.descricaoLargadouro.hashCode() : 0);
+        int hash = 5;
+        hash = 79 * hash + (this.idLogradouro != null ? this.idLogradouro.hashCode() : 0);
+        hash = 79 * hash + (this.descricaoLogradouro != null ? this.descricaoLogradouro.hashCode() : 0);
         return hash;
     }
 
@@ -87,15 +83,25 @@ public class TipoLargadouro implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final TipoLargadouro other = (TipoLargadouro) obj;
-        if (this.idLargadouro != other.idLargadouro && (this.idLargadouro == null || !this.idLargadouro.equals(other.idLargadouro))) {
+        final TipoLogradouro other = (TipoLogradouro) obj;
+        if (this.idLogradouro != other.idLogradouro && (this.idLogradouro == null || !this.idLogradouro.equals(other.idLogradouro))) {
             return false;
         }
-        if ((this.descricaoLargadouro == null) ? (other.descricaoLargadouro != null) : !this.descricaoLargadouro.equals(other.descricaoLargadouro)) {
+        if ((this.descricaoLogradouro == null) ? (other.descricaoLogradouro != null) : !this.descricaoLogradouro.equals(other.descricaoLogradouro)) {
             return false;
         }
         return true;
     }
+
+   
+    
+    
+    
+
+   
+ 
+
+  
     
     
     

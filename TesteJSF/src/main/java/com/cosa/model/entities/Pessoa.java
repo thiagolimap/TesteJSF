@@ -138,6 +138,14 @@ public class Pessoa implements Serializable{
         }
         return true;
     }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
     
     
      

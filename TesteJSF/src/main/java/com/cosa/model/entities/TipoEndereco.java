@@ -30,7 +30,7 @@ public class TipoEndereco implements Serializable{
     
     @Id
     @GeneratedValue
-    @Column(name = "tipoEndereco", nullable = false)
+    @Column(name = "idTipoEndereco", nullable = false)
     private Integer idTipoEndereco;
     
     @Column(name = "DescricaoTipoEndereco", nullable = false, length = 35)

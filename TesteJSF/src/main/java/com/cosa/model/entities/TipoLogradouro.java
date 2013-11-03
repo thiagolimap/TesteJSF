@@ -29,8 +29,8 @@ public class TipoLogradouro implements Serializable{
     
     @Id
     @GeneratedValue
-    @Column(name = "idLogradouro", nullable = false)
-    private Integer idLogradouro;
+    @Column(name = "idTipoLogradouro", nullable = false)
+    private Integer idTipoLogradouro;
     
     @Column(name = "descricaoLargadouro", nullable = false, length = 35)
     private String descricaoLogradouro;
@@ -51,13 +51,7 @@ public class TipoLogradouro implements Serializable{
         this.endereco = endereco;
     }
 
-    public Integer getIdLogradouro() {
-        return idLogradouro;
-    }
 
-    public void setIdLogradouro(Integer idLogradouro) {
-        this.idLogradouro = idLogradouro;
-    }
 
     public String getDescricaoLogradouro() {
         return descricaoLogradouro;
@@ -67,11 +61,19 @@ public class TipoLogradouro implements Serializable{
         this.descricaoLogradouro = descricaoLogradouro;
     }
 
+    public Integer getIdTipoLogradouro() {
+        return idTipoLogradouro;
+    }
+
+    public void setIdTipoLogradouro(Integer idTipoLogradouro) {
+        this.idTipoLogradouro = idTipoLogradouro;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + (this.idLogradouro != null ? this.idLogradouro.hashCode() : 0);
-        hash = 79 * hash + (this.descricaoLogradouro != null ? this.descricaoLogradouro.hashCode() : 0);
+        int hash = 3;
+        hash = 43 * hash + (this.idTipoLogradouro != null ? this.idTipoLogradouro.hashCode() : 0);
+        hash = 43 * hash + (this.descricaoLogradouro != null ? this.descricaoLogradouro.hashCode() : 0);
         return hash;
     }
 
@@ -84,7 +86,7 @@ public class TipoLogradouro implements Serializable{
             return false;
         }
         final TipoLogradouro other = (TipoLogradouro) obj;
-        if (this.idLogradouro != other.idLogradouro && (this.idLogradouro == null || !this.idLogradouro.equals(other.idLogradouro))) {
+        if (this.idTipoLogradouro != other.idTipoLogradouro && (this.idTipoLogradouro == null || !this.idTipoLogradouro.equals(other.idTipoLogradouro))) {
             return false;
         }
         if ((this.descricaoLogradouro == null) ? (other.descricaoLogradouro != null) : !this.descricaoLogradouro.equals(other.descricaoLogradouro)) {
@@ -93,16 +95,6 @@ public class TipoLogradouro implements Serializable{
         return true;
     }
 
-   
-    
-    
-    
-
-   
- 
-
-  
-    
     
     
 }

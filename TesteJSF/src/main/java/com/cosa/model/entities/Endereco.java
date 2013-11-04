@@ -23,7 +23,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author Thiago
  */
 @Entity
-@Table (name = "Endereco")
+@Table (name = "endereco")
 public class Endereco implements Serializable{
     
      private static final long serialVersionUID = 1L;

@@ -39,7 +39,7 @@ public class MyPhaseListener implements PhaseListener{
     public void beforePhase(PhaseEvent phase) {
         if(phase.getPhaseId().equals(PhaseId.RESTORE_VIEW)){
             System.out.println("Antes da fase"+ phase.getPhaseId());
-            Session session = HibernateUtil.getSession_factory().openSession();
+            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             FacesContextUtil.setRequestSession(session);
             

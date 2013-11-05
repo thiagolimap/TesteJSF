@@ -10,6 +10,7 @@ import com.cosa.model.DAO.InterfaceDAO;
 import com.cosa.model.entities.Cidade;
 import com.cosa.util.FacesContextUtil;
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -28,7 +29,7 @@ public class MbCidade implements Serializable {
 
     private Cidade cidade = new Cidade();
 
-    private List<Cidade> cidades;
+    private List<Cidade> cidades = new LinkedList<Cidade>();
 
     public MbCidade() {
     }
@@ -40,8 +41,8 @@ public class MbCidade implements Serializable {
     }
 
     public String limparCidade() {
-        cidade = new Cidade();
-        return "/restrict/cadastrarCidades.faces";
+        this.cidade = new Cidade();
+        return "/restrict/cadastrarcidade.faces";
     }
 
     public String editCidade() {
@@ -51,23 +52,25 @@ public class MbCidade implements Serializable {
 
     public String addCidade() {
         if (cidade.getIdCidade() == null || cidade.getIdCidade() == 0) {
-            insertCidade();
+            
+            insertCidade(cidade);
         } else {
-            updateCidade();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Já existe!", ""));
+            //updateCidade();
         }
         limparCidade();
         return null;
     }
 
-    private void insertCidade() {
-        cidadeDAO().save(cidade);
+    private void insertCidade(Cidade cidade1) {
+        this.cidades.add(cidade1);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso!", ""));
     }
 
-    private void updateCidade() {
-        cidadeDAO().update(cidade);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso!", ""));
-    }
+   // private void updateCidade() {
+   //     cidadeDAO().update(cidade);
+   //     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso!", ""));
+   // }
 
     
     public void deleteCidade(){
@@ -83,11 +86,14 @@ public class MbCidade implements Serializable {
     }
 
     public List<Cidade> getCidades() {
-        cidades= cidadeDAO().getEntities();
+      
+      
+        
         return cidades;
     }
 
     public void setCidades(List<Cidade> cidades) {
+
         this.cidades = cidades;
     }
     
